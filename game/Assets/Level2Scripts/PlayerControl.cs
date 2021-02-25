@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    /*-------------------------------------------------------
+     * PLAYER MOVEMENT:
+     * Left Mouse Click : Move
+     * Right Mouse Click: Attack
+     * ------------------------------------------------------
+    */
+
     public GameObject AnimationControl;
     
 

@@ -19,7 +19,6 @@ public class SkeletonControl : MonoBehaviour
 
     void Start()
     {
-        //skeletonAnimationControl.GetComponent<SkeletonAnimation>().Walk();
         navAgent = GetComponent<NavMeshAgent>();
         waypoints = GameObject.FindGameObjectsWithTag("waypoint");
         presentWaypoint = 0;    //tells enemy to go to waypoint 0
@@ -36,12 +35,18 @@ public class SkeletonControl : MonoBehaviour
         if (Vector3.Distance(player.position, transform.position) < 4.0f)
         {
             PlayerChase();
+            if (Vector3.Distance(player.position, this.transform.position) < 2.0f)
+            {
+                navAgent.isStopped = true;
+
+            }
         }
         else
         {
             //Resume patrolling at waypoints
             navAgent.isStopped = false;
             navAgent.SetDestination(waypoints[presentWaypoint].transform.position);
+
         }
 
         
